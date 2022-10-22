@@ -25,7 +25,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-    }, {tableName: 'users'})
+    }, {tableName: 'users', timestamps: false})
   },
 
   down: async (queryInterface, Sequelize) => {

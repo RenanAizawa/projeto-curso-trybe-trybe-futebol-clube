@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       }
-    }, { tableName: 'teams'});
+    }, { tableName: 'teams', timestamps: false});
   },
 
   down: async (queryInterface, Sequelize) => {
