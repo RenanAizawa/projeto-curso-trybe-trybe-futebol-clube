@@ -7,5 +7,6 @@ const teamsRoute = express.Router();
 // const controller = new TeamsController();
 
 teamsRoute.get('/', TeamsController.getAll);
+teamsRoute.get('/:id', TeamsController.findById);
 
 export default teamsRoute;

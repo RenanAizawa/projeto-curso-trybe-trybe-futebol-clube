@@ -1,13 +1,6 @@
-// import { ITeamsService } from '../interfaces/ITeamsService';
 import Teams from '../models/Teams';
 
 export default class TeamsService {
-  // private model: Model;
-  // constructor() {
-  //   // this.model =  Teams;
-  //   // console.log('SERVICE: ', model);
-  // }
-
   static async getAll() {
     console.log('entrei no getAll do Service');
 
@@ -16,9 +9,9 @@ export default class TeamsService {
     return result;
   }
 
-  // async findById(id: number) {
-  //   const result = await this.teamsModel.findOne({ where: { id } });
-  //   if (!result) throw new Error('Nenhum time encontrado com id fornecido');
-  //   return result;
-  // }
+  static async findById(id: number) {
+    const result = await Teams.findOne({ where: { id } });
+    if (!result) throw new Error('Nenhum time encontrado com id fornecido');
+    return result;
+  }
 }
