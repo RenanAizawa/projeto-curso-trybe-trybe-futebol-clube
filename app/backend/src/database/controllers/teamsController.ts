@@ -3,11 +3,11 @@ import TeamsService from '../services/TeamsService';
 
 export default class TeamsController {
   static async getAll(req: Request, res: Response) {
-    console.log('entrei no getAll do controler');
     try {
       const data = await TeamsService.getAll();
       return res.status(200).json(data);
     } catch (error: any) {
+      if (error.status) return res.status(error.status).json({ message: error.message });
       res.status(500).json({ message: error.message });
     }
   }
@@ -18,6 +18,7 @@ export default class TeamsController {
       const data = await TeamsService.findById(Number(id));
       return res.status(200).json(data);
     } catch (error: any) {
+      if (error.status) return res.status(error.status).json({ message: error.message });
       res.status(500).json({ message: error.message });
     }
   }
