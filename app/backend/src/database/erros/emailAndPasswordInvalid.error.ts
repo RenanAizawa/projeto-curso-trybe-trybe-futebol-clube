@@ -1,4 +1,4 @@
-export default class UserPasswordNotMatch extends Error {
+export default class EmailAndPasswordInvalid extends Error {
   public status: number;
   constructor(message: string) {
     super(message);
