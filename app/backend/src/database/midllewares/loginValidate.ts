@@ -22,10 +22,11 @@ export default class LoginValidate {
 
   static tokenVerify = (req: Request, res: Response) => {
     const { authorization } = req.headers;
+    // console.log(authorization, '<<<<<<: testando a existencia doa authorization');
     try {
-      if (!authorization) throw new Error('Token invalid');
+      if (!authorization) throw new Error('Token inexistente');
       const user: any = jwt.decode(authorization, secret);
-      // console.log('chamada de role :', user.data.role);
+      if (!user) throw new Error('Token sem usuario');
       return res.status(200).json({ role: user.data.role });
     } catch (error: any) {
       return res.status(401).json({ message: error.message });

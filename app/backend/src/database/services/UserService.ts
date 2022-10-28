@@ -8,8 +8,11 @@ import { emailAndPasswordIsValid, existEmailAndPassword } from '../helps/login.h
 import Users from '../models/Users';
 
 dotenv.config();
+
 const secret: any = process.env.JWT_SECRET;
+
 const invalidEmailAndPassword = 'Incorrect email or password';
+
 export default class UserService {
   static async getUser(email: string, password: string) {
     const data:any = await Users.findOne({ where: { email } });

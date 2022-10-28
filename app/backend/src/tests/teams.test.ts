@@ -12,7 +12,7 @@ chai.use(chaiHttp);
 
 const { expect } = chai;
 
-describe('3) Mapeamento de teste da rota /teams', () => {
+describe('2) Mapeamento de teste da rota /teams', () => {
     before(() => {
     sinon.stub(Teams, 'findAll')
     .onCall(0).resolves(allTeams as Teams[])
