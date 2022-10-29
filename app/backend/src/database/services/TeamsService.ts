@@ -1,9 +1,9 @@
-import Teams from '../models/Teams';
 import TeamError from '../erros/teams.error';
+import Teams from '../models/Teams';
 
 export default class TeamsService {
   static async getAll() {
-    console.log('entrei no getAll do Service');
+    // console.log('entrei no getAll do Service');
 
     const result = await Teams.findAll();
     if (!result) throw new TeamError('Erro na busca de teams');
