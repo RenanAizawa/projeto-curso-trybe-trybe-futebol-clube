@@ -46,4 +46,21 @@ export default class MatchesController {
       return res.status(500).json({ message: error.message });
     }
   }
+
+  static async updatePlacar(req: Request, res: Response) {
+    const {
+      params: { id },
+      body: { homeTeamGoals, awayTeamGoals },
+    } = req;
+    try {
+      const placar = await MatchesService.updatePlacarMatch(
+        Number(id),
+        Number(homeTeamGoals),
+        Number(awayTeamGoals),
+      );
+      return res.status(200).json(placar);
+    } catch (error: any) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
 }

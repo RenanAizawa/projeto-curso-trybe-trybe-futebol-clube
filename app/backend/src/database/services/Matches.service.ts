@@ -42,4 +42,13 @@ export default class MatchesService {
     const matche = Matches.update({ inProgress: false }, { where: { id } });
     return matche;
   }
+
+  static async updatePlacarMatch(
+    id: number,
+    homeTeamGoals: number,
+    awayTeamGoals: number,
+  ) {
+    const placar = Matches.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+    return placar;
+  }
 }

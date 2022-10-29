@@ -13,5 +13,6 @@ matchesRoute.post(
   MatchesController.createMatch,
 );
 matchesRoute.patch('/:id/finish', MatchesController.updateProgress);
+matchesRoute.patch('/:id', TokenValidate.validate, MatchesController.updatePlacar);
 
 export default matchesRoute;
