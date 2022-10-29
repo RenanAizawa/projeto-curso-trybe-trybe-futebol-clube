@@ -15,4 +15,23 @@ export default class MatchesController {
       return res.status(500).json({ message: error.message });
     }
   }
+
+  static async createMatch(req: Request, res: Response) {
+    const { homeTeam,
+      awayTeam,
+      homeTeamGoals,
+      awayTeamGoals } = req.body;
+
+    try {
+      const create = await MatchesService.createMatch(
+        homeTeam,
+        awayTeam,
+        homeTeamGoals,
+        awayTeamGoals,
+      );
+      return res.status(201).json(create);
+    } catch (error: any) {
+      return res.status(401).json({ message: error.message });
+    }
+  }
 }

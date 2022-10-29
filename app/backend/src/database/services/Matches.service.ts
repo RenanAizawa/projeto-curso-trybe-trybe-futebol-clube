@@ -21,4 +21,20 @@ export default class MatchesService {
     });
     return matches;
   }
+
+  static async createMatch(
+    homeTeam: number,
+    awayTeam: number,
+    homeTeamGoals: number,
+    awayTeamGoals: number,
+  ) {
+    const create = await Matches.create({
+      homeTeam,
+      awayTeam,
+      homeTeamGoals,
+      awayTeamGoals,
+      inProgress: true,
+    });
+    return create as Matches;
+  }
 }
