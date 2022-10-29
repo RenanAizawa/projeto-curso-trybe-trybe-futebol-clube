@@ -37,4 +37,9 @@ export default class MatchesService {
     });
     return create as Matches;
   }
+
+  static async updateMatchProgress(id: number) {
+    const matche = Matches.update({ inProgress: false }, { where: { id } });
+    return matche;
+  }
 }

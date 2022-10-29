@@ -34,4 +34,16 @@ export default class MatchesController {
       return res.status(401).json({ message: error.message });
     }
   }
+
+  static async updateProgress(req: Request, res: Response) {
+    const { id } = req.params;
+
+    try {
+      const updated = await MatchesService.updateMatchProgress(Number(id));
+      if (updated) return res.status(200).json({ message: 'Finished' });
+      return res.end();
+    } catch (error: any) {
+      return res.status(500).json({ message: error.message });
+    }
+  }
 }
